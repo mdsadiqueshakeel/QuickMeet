@@ -13,7 +13,7 @@ const login = async (req, res) => {
         return res.status(400).json({message: "Please Provide"});
     }
     try {
-        const user = await User.findOne({ userName });
+        const user = await User.findOne({ username });
         if(!user) {
             return res.status(httpStatus.NOT_FOUND).json({message: "User Not Found"});
         }
@@ -45,7 +45,7 @@ const register = async (req, res) => {
   const { name, username, password } = req.body;
 
   try {
-    const existingUser = await User.findOne({ userName });
+    const existingUser = await User.findOne({ username });
     if (existingUser) {
       return res
         .status(httpStatus.FOUND)

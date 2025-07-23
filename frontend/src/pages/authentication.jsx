@@ -43,19 +43,22 @@ export default function Authentication() {
         try {
             if (formState === 0) {
 
-                let result = await handleLogin(username, password)
+                let result = await handleLogin(username, password);
+                console.log(result);
+                setUsername(username);
+                setPassword(password);
 
 
             }
             if (formState === 1) {
                 let result = await handleRegister(name, username, password);
                 console.log(result);
-                setUsername("");
+                setUsername(username);
                 setMessage(result);
                 setOpen(true);
                 setError("")
                 setFormState(0)
-                setPassword("")
+                setPassword(password);
             }
         } catch (err) {
 

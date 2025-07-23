@@ -23,10 +23,11 @@ app.use(express.json({limit: "40kb"}));
 app.use(express.urlencoded({limit: "40kb", extended: true}));
 app.use("/api/v1/users", userRoutes);
 
+const MONGO_URI = "mongodb+srv://mdaman01245:NvELlLkSpZEdMcoh@zoomclonecluster.qnvn6tb.mongodb.net/zoom?retryWrites=true&w=majority&appName=ZoomCloneCluster"
 
 
 const start = async () => {
-    const connectionDb = await mongoose.connect("mongodb+srv://mdaman01245:NvELlLkSpZEdMcoh@zoomclonecluster.qnvn6tb.mongodb.net/zoom?retryWrites=true&w=majority&appName=ZoomCloneCluster");
+    const connectionDb = await mongoose.connect(MONGO_URI);
 
     console.log(`MONGO Connected DB Host: ${connectionDb.connection.host}`);
 
